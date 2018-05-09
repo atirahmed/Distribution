@@ -1,0 +1,20 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Address</th>
+      <th scope="col">Contact #</th>
+      <!--<th scope="col">Meeeting</th>-->
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let var1 of MedStore | async; let index = index">
+      <th scope="row">{{index+1}}</th>
+      <td>{{var1.name}}</td>
+      <td>{{var1.address}}</td>
+      <td>{{var1.contact}}</td>
+      <td><button type="button" class="btn btn-primary" (click)="onDelete(var1.key)"> Remove</button></td>
+    </tr>
+  </tbody>
+</table>

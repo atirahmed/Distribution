@@ -1,0 +1,39 @@
+<mat-card class="example-card">
+  <div class="example-container">
+    <mat-form-field>
+      <mat-select placeholder="Pharma Company">
+        <mat-option *ngFor="let var2 of Client | async;" [value]="var2.name">{{var2.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Product Name" formControlName="name">
+    </mat-form-field>
+      <mat-form-field>
+      <input matInput placeholder="Price" formControlName="price">
+    </mat-form-field>
+  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button mat-button type="submit" (click)="AddMedicine(var1.key)">Add Medicine</button>
+  </div>  
+</mat-card>
+
+<br><br>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Medicine Name</th>
+      <th scope="col">Pharma Name</th>
+      <th scope="col">price</th>
+      <!--<th scope="col">Meeeting</th>-->
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let var1 of Medicine | async; let index = index">
+      <th scope="row">{{index+1}}</th>
+      <td>{{var1.medicineName}}</td>
+      <td>{{var1.companyName}}</td>
+      <td>{{var1.price}}</td>
+      <td><button type="button" class="btn btn-primary" (click)="onDelete(var1.key)"> Remove</button></td>
+    </tr>
+  </tbody>
+</table>
